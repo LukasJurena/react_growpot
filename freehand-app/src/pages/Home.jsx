@@ -9,18 +9,30 @@ const Home = () => {
     const contactRef = useRef(null);
 
     useEffect(() => {
-        // Initial animation for the main container
-        //gsap.from(containerRef.current, { opacity: 1, y: -50, duration: 1 });
-    
-        /* Animations for each section when the page loads
-        //gsap.from(productRef.current, { opacity: 1, x: -100, duration: 1, delay: 0.5 });
-        //gsap.from(companyRef.current, { opacity: 1, x: 100, duration: 1, delay: 1 });
-        gsap.from(contactRef.current, { opacity: 1, y: 50, duration: 1, delay: 1.5 });*/
+        // Animace pro hlavní kontejner
+        gsap.fromTo(containerRef.current, 
+            { opacity: 0, y: -50 }, // počáteční hodnoty
+            { opacity: 1, y: 0, duration: 1 } // koncové hodnoty
+        );
+
+        // Animace pro jednotlivé sekce při načtení stránky
+        gsap.fromTo(productRef.current, 
+            { opacity: 0, x: -100 }, 
+            { opacity: 1, x: 0, duration: 1, delay: 0.5 }
+        );
+        gsap.fromTo(companyRef.current, 
+            { opacity: 0, x: 100 }, 
+            { opacity: 1, x: 0, duration: 1, delay: 1 }
+        );
+        gsap.fromTo(contactRef.current, 
+            { opacity: 0, y: 50 }, 
+            { opacity: 1, y: 0, duration: 1, delay: 1.5 }
+        );
     }, []);
 
     return (
         <div className="growpot-container" ref={containerRef}>
-            {/* Navigation Bar */}
+            {/* Navigační lišta */}
             <nav className="growpot-navbar">
                 <a className="growpot-logo">Growpot</a>
                 <ul className="growpot-nav-links">
@@ -30,31 +42,31 @@ const Home = () => {
                 </ul>
             </nav>
 
-            {/* Main Header */}
+            {/* Hlavní nadpis */}
             <header className="growpot-header">
-                <h1>Welcome to Growpot</h1>
-                <p>Your solution for efficient and sustainable plant growth!</p>
+                <h1>Vítejte v Growpot</h1>
+                <p>Vaše řešení pro efektivní a udržitelný růst rostlin!</p>
             </header>
 
-            {/* Sections */}
+            {/* Sekce */}
             <section id="product" ref={productRef} className="growpot-section product-section">
-                <h2>Our Product</h2>
-                <p>Growpot offers innovative solutions for home gardening, allowing plants to thrive with minimal effort.</p>
+                <h2>Naše produkty</h2>
+                <p>Growpot nabízí inovativní řešení pro domácí zahradničení, které umožňuje rostlinám prospívat s minimálním úsilím.</p>
             </section>
 
             <section id="company" ref={companyRef} className="growpot-section company-section">
-                <h2>About Our Company</h2>
-                <p>We are a team of gardening enthusiasts committed to creating sustainable solutions for urban gardening.</p>
+                <h2>O naší společnosti</h2>
+                <p>Jsme tým zahradnických nadšenců, kteří se zavázali vytvářet udržitelná řešení pro městské zahradničení.</p>
             </section>
 
             <section id="contact" ref={contactRef} className="growpot-section contact-section">
-                <h2>Contact Us</h2>
-                <p>Have any questions? Reach out to us at contact@growpot.com or call us at 123-456-7890.</p>
+                <h2>Kontaktujte nás</h2>
+                <p>Máte nějaké otázky? Kontaktujte nás na emailu contact@growpot.com nebo nám zavolejte na číslo 123-456-7890.</p>
             </section>
 
-            {/* Footer */}
+            {/* Zápatí */}
             <footer className="growpot-footer">
-                <p>© 2024 Growpot. All rights reserved.</p>
+                <p>© 2024 Growpot. Všechna práva vyhrazena.</p>
             </footer>
         </div>
     );

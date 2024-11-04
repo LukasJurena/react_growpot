@@ -1,10 +1,18 @@
 /* Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Jockey+One&display=swap');
 
+body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    width: 100%; /* Plná šířka */
+}
+
 /* Root styles */
 :root {
     font-family: 'Jockey One', sans-serif;
     line-height: 1.5;
+    padding: 0;
     font-weight: 400;
     color-scheme: light dark;
     color: rgba(255, 255, 255, 0.87);
@@ -15,14 +23,37 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+    max-width: 1280px;
+    width: 100vw;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+}
+
+/* Responsive padding */
+@media (max-width: 768px) {
+    #root {
+        padding: 0 0.5rem; /* Zmenší padding na menších obrazovkách */
+    }
+}
+
+@media (max-width: 480px) {
+    #root {
+        padding: 0 0.25rem; /* Ještě menší padding na velmi malých obrazovkách */
+    }
+}
+
 /* Basic element styles */
 a {
     font-weight: 500;
     color: #646cff;
     text-decoration: inherit;
+    transition: ease-in;
+    transition-duration: 0.2s;
 }
 a:hover {
-    color: #535bf2;
+    color: green;
 }
 
 body {
@@ -65,7 +96,7 @@ button:focus-visible {
         background-color: #ffffff;
     }
     a:hover {
-        color: #747bff;
+        color: green;
     }
     button {
         background-color: #f9f9f9;
@@ -109,22 +140,147 @@ button:focus-visible {
 .growpot-header {
     padding: 2rem 0;
 }
+.header-image {
+    width: 85%; /* Nastavte vhodnou šířku */
+    height: auto;
+    margin-top: -7%;
+    margin-left: 20px;
+    border-radius: 8px; /* Přidá zaoblené rohy, volitelné */
+}
+
+/* Responsive image */
+@media (max-width: 768px) {
+    .header-image {
+        width: 90%; /* Šířka pro menší obrazovky */
+        margin-left: 0; /* Odstranění levého okraje */
+    }
+}
 
 /* Section styles */
 .growpot-section {
     padding: 2rem;
+    margin: 1rem;
 }
 
 .product-section {
     background-color: #f0f0f0;
+    color: black;
+    padding: 2rem; /* Přidání paddingu pro lepší vzhled */
+    border-radius: 10px; /* Kulaté rohy */
+}
+
+.product-content {
+    display: flex; /* Flexbox pro umístění obrázku a funkcí vedle sebe */
+    align-items: flex-start; /* Zarovnání obrázku a funkcí nahoru */
+    gap: 2rem; /* Mezera mezi obrázkem a funkcemi */
+    padding: 0 25% 0 25%;
+}
+
+.product-image {
+    width: 300px; /* Šířka obrázku */
+    height: auto; /* Výška automaticky */
+    border-radius: 10px; /* Kulaté rohy pro obrázek */
+}
+
+/* Responsive product image */
+@media (max-width: 768px) {
+    .product-image {
+        width: 100%; /* Šířka obrázku na 100% pro menší obrazovky */
+    }
+}
+
+.product-features {
+    flex: 1; /* Umožňuje funkční části zabírat zbytek dostupného prostoru */
+}
+
+ul {
+    list-style-type: none; /* Odstranění základního stylu seznamu */
+    padding: 0; /* Odstranění výchozího odsazení */
+}
+
+.feature-item {
+    display: flex; /* Umožňuje ikoně a textu být vedle sebe */
+    align-items: center; /* Vertikální zarovnání */
+    opacity: 1; /* Nastaveno na 1 pro viditelnost */
+    transition: opacity 0.5s ease; /* Přidání přechodu pro plynulý efekt */
+}
+
+.feature-icon {
+    width: 40px; /* Šířka ikony */
+    height: auto; /* Výška automaticky */
+    margin-right: 1rem; /* Mezera mezi ikonou a textem */
 }
 
 .company-section {
-    background-color: #e0e0e0;
+    background-color: none; /* Tmavé pozadí */
+    color: white; /* Bílé písmo pro kontrast */
+    padding: 2rem; /* Odsazení */
+    border-radius: 10px; /* Kulaté rohy */
+}
+
+.company-content {
+    display: flex; /* Flexbox pro umístění obrázku a odkazů vedle sebe */
+    flex-direction: column; /* Uložení obsahu pod sebe */
+    align-items: center; /* Horizontální zarovnání do středu */
+}
+
+.company-image {
+    width: 100%; /* Obrázek na 100% šířku */
+    max-width: 600px; /* Maximální šířka */
+    height: auto; /* Výška automaticky */
+    border-radius: 10px; /* Kulaté rohy */
+    opacity: 0; /* Skryté při načtení */
+}
+
+/* Responsive company image */
+@media (max-width: 768px) {
+    .company-image {
+        max-width: 90%; /* Maximální šířka pro menší obrazovky */
+    }
+}
+
+.company-links {
+    margin: 1rem 0; /* Odsazení mezi obrázkem a odkazy */
+}
+
+.company-link {
+    color: white; /* Bílá barva textu pro odkazy */
+    text-decoration: none; /* Žádný podtržení */
+    transition: color 0.3s ease; /* Přechod pro hover efekt */
+}
+
+.company-link:hover {
+    color: #f0a500; /* Změna barvy při hover */
+}
+
+.separator {
+    color: white; /* Barva oddělovače */
+    margin: 0 0.5rem; /* Odsazení kolem oddělovače */
+}
+
+.available-year {
+    margin-top: 2rem; /* Odsazení nad textem */
+    opacity: 0; /* Skryté při načtení */
+}
+
+/* Animace pro načtení */
+.company-image.visible,
+.available-year.visible {
+    opacity: 1; /* Viditelné */
+    transform: translateY(0); /* Normální pozice */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Plynulé přechody */
+}
+
+.company-image {
+    transform: translateY(-20px); /* Posun nahoru pro animaci */
+}
+
+.available-year {
+    transform: translateY(20px); /* Posun dolů pro animaci */
 }
 
 .contact-section {
-    background-color: #d0d0d0;
+    background-color: none;
 }
 
 /* Footer */
@@ -183,6 +339,14 @@ button:focus-visible {
   width: 50vw;
   padding: 2rem;
   box-sizing: content-box;
+}
+
+/* Responsive project wrap */
+@media (max-width: 768px) {
+    .project-wrap {
+        width: 90vw; /* Změní šířku na 90% pro menší obrazovky */
+        padding: 1rem; /* Menší padding pro menší obrazovky */
+    }
 }
 
 .project-wrap img {

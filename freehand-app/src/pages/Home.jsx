@@ -19,6 +19,7 @@ const Home = () => {
     const contactRef = useRef(null);
 
     useEffect(() => {
+        document.title = "GrowPot";
         // Animace pro hlavní kontejner
         gsap.fromTo(containerRef.current, 
             { opacity: 0, y: -50 }, 

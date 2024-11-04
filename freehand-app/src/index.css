@@ -1,68 +1,191 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Jockey+One&display=swap');
+
+/* Root styles */
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-family: 'Jockey One', sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
+/* Basic element styles */
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+    font-weight: 500;
+    color: #646cff;
+    text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+    color: #535bf2;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+    margin: 0;
+    display: flex;
+    min-width: 320px;
+    min-height: 100vh;
 }
 
+/* Header and text */
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+    font-size: 3.2em;
+    line-height: 1.1;
 }
 
+/* Button styles */
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+    border-color: #646cff;
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+    outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* Light mode overrides */
 @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+    :root {
+        color: #213547;
+        background-color: #ffffff;
+    }
+    a:hover {
+        color: #747bff;
+    }
+    button {
+        background-color: #f9f9f9;
+    }
+}
+
+/* Main container */
+.growpot-container {
+    text-align: center;
+}
+
+/* Navbar styles */
+.growpot-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+}
+
+.growpot-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+.growpot-nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+}
+
+.growpot-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Header */
+.growpot-header {
+    padding: 2rem 0;
+}
+
+/* Section styles */
+.growpot-section {
+    padding: 2rem;
+}
+
+.product-section {
+    background-color: #f0f0f0;
+}
+
+.company-section {
+    background-color: #e0e0e0;
+}
+
+.contact-section {
+    background-color: #d0d0d0;
+}
+
+/* Footer */
+.growpot-footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+}
+
+/* Smooth Scrolling Wrapper */
+#smooth-wrapper {
+  overflow-x: hidden;
+  margin: 0;
+}
+
+#smooth-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Section styling */
+.section, section {
+  padding: 80px 0;
+  text-align: center;
+}
+
+/* Box Animation */
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: #3498db;
+  margin: 20px;
+  text-align: center;
+  line-height: 100px;
+  color: white;
+}
+
+/* Gallery Layout */
+.container-fluid {
+  width: 100%;
+  overflow: hidden;
+}
+
+.horiz-gallery-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.horiz-gallery-strip {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.project-wrap {
+  width: 50vw;
+  padding: 2rem;
+  box-sizing: content-box;
+}
+
+.project-wrap img {
+  width: 100%;
+  height: auto;
 }
